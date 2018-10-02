@@ -1,0 +1,209 @@
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedSchool">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedSchool">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedSchool">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+
+<!-- new grade main -->
+<div class="container aws-margin10" ng-show="model.newGradeMain">
+	<div class="row">
+		<div class="col-12">
+			<div class="form-group">
+				<form>
+					<fieldset>
+				    <legend><h1>New Course:</h1></legend>
+					<div class="form-group">
+						<label for="gradeName">Course Name:</label>
+						<input class="form-control" type="text" name="gradeName" id="gradeName" ng-model="newGrade.name">
+				    </div>
+				    <div class="form-group">
+						<label for="school">School:</label>
+						<!-- <input class="form-control" type="text" name="school" id="school" ng-model="newGrade.school"> -->
+						<select ng-model="newGrade.school" class="custom-select" ng-options="school.name for school in model.schools">
+							<option value="" disabled>Select school..</option>
+						</select>
+						<!-- {{model.schools}} -->
+					</div>
+
+					<div class="form-group">
+						<label for="details">Details:</label>
+						<textarea class="form-control" rows="4" cols="50" name="details" id="details" ng-model="newGrade.details"></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="startingDate">Starting Date:</label>
+						<input type="date" class="form-control" rows="4" cols="50" name="startingDate" id="startingDate" ng-model="newGrade.startingDate">
+					</div>
+
+					<div class="form-group">
+						<label for="expiryDate">End Date:</label>
+						<input type="date" class="form-control" rows="4" cols="50" name="expiryDate" id="expiryDate" ng-model="newGrade.expiryDate">
+					</div>
+
+					<div>
+						<div class="weekDays-selector">
+						  <input type="checkbox" id="weekday-sat" class="weekday" ng-model="daysOfWeek.Sat"/>
+						  <label for="weekday-sat">Sat</label>
+						  <input type="checkbox" id="weekday-sun" class="weekday" ng-model="daysOfWeek.Sun"/>
+						  <label for="weekday-sun">Sun</label>
+						  <input type="checkbox" id="weekday-mon" class="weekday" ng-model="daysOfWeek.Mon"/>
+						  <label for="weekday-mon">Mon</label>
+						  <input type="checkbox" id="weekday-tue" class="weekday" ng-model="daysOfWeek.Tue"/>
+						  <label for="weekday-tue">Tue</label>
+						  <input type="checkbox" id="weekday-wed" class="weekday" ng-model="daysOfWeek.Wed"/>
+						  <label for="weekday-wed">Wed</label>
+						  <input type="checkbox" id="weekday-thu" class="weekday" ng-model="daysOfWeek.Thu"/>
+						  <label for="weekday-thu">Thi</label>
+						  <input type="checkbox" id="weekday-fri" class="weekday" ng-model="daysOfWeek.Fri"/>
+						  <label for="weekday-fri">Fri</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="price">Price:</label>
+						<input type="text" class="form-control" rows="4" cols="50" name="price" id="price" ng-model="newGrade.price">
+					</div>
+
+					<div class="form-group">
+						<label for="address">Address:</label>
+						<input class="form-control" type="text" name="address" id="address" ng-model="newGrade.address">
+					</div>
+
+					<div class=" form-group">
+					    <label >Map Location:  </label>
+					    <div class="form-inline">
+						    <a class="btn btn-warning" style="margin-left: 10px;" ng-click="model.getCurrentLocation()">Current location</a>
+						    <a class="btn btn-warning" data-toggle="modal" data-target="#mapModal" style="margin-left: 10px;">Location on map</a>
+						    <!-- <div class="map" id="mapForLocation"></div> -->
+						    <!-- Modal -->
+							<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalTitle" aria-hidden="true">
+							  <div class="modal-dialog modal-dialog-schooled modal-lg" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="modalTitle">Get your position:</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <div class="map" id="mapForLocation"></div>
+							      </div>
+							      <div class="modal-footer">
+							      	<label type="text" id="mapLng"></label>
+							      	<label type="text" id="mapLat"></label>
+
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							        <button type="button" class="btn btn-primary" ng-click="model.getLocationFromMap()" data-dismiss="modal">Confirm Location</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+					    </div>
+						    <small class="text-danger" style="margin-left: 10px;">To show current position your browser should accept geolocation by accepting the warning message</small>
+							<br>
+						    <small class="text-danger" style="margin-left: 10px;">If the latitude and longitude not shown direct on the following boxes please reclick on the current location button again </small>
+					    <div class="form-inline">
+					      <input type="text" id="mapLongitude" class="form-control" placeholder="longitude" ng-model="model.mapLocation.longitude" style="margin-left: 10px; margin-top: 20px;">
+					      <input type="text" id="mapLatitude" class="form-control" placeholder="latitude" ng-model="model.mapLocation.latitude" style="margin-left: 10px; margin-top: 20px;">
+					    </div>
+				    </div>
+
+					<div class="form-group">
+						<label for="img750x450">Image source 750x450:</label>
+						<input type="text" class="form-control" rows="4" cols="50" name="img750x450" id="img750x450" ng-model="newGrade.images.img750x450">
+					</div>
+
+					<div class="form-group">
+						<label for="img1200x300">Image source 1200x300:</label>
+						<input type="text" class="form-control" rows="4" cols="50" name="img1200x300" id="img1200x300" ng-model="newGrade.images.img1200x300">
+					</div>
+
+					<!-- <button type="button" name="create" class="btn btn-primary" ng-click="model.createCourse(newGrade)">Create</button> -->
+					<button type="button" name="createCourse" class="btn btn-primary" ng-click="model.createCourseDetails(newGrade, daysOfWeek, model.mapLocation)">Create Details</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<!--  Course Details -->
+<div class="container aws-margin10" ng-show="model.newGradeProgramDetails">
+	<div class="row">
+		<div class="col-12">
+			<h1>Course Details Day By Day</h1>
+			<div class="form-group">
+				<form>
+					<fieldset>
+						<legend>Course Details:</legend>
+						<div>
+							<div style="margin-left: 50px;" class="form-group" ng-repeat="day in model.newGrade.gradeDays">
+								<label style="background-color: lightgreen;"><b>Day: </b>{{day}}</label>
+								<!-- <input type="text" class="form-control" placeholder="program Title" ng-model="model.newGrade.practiceDailyDetails[day].title" style="margin-bottom: 3px;"> -->
+								<!-- <textarea class="form-control" style="border-left: 5px; border-style: solid; border-left-color: red; margin-bottom: 3px;" rows="4" cols="50" ng-model="model.newGrade.practiceDailyDetails[day].details">Course details</textarea> -->
+								<!-- <input type="text" class="form-control" placeholder="link for video" ng-model="model.newGrade.practiceDailyDetails[day].videoLink"> -->
+								
+
+								<!-- model.newGrade.practiceDailyDetails[day].assignments -->
+								<select ng-model="resource" class="custom-select" ng-options="book.title for book in newGrade.school.books">
+									<option value="" disabled>Select resource</option>
+								</select>
+								<select ng-model="pages" class="custom-select" ng-options="page as page for (page, value) in resource.pages">
+									<option value="" disabled>Select page</option>
+								</select>
+								<button class="btn btn-danger" ng-click="model.addAssignment(day, resource, pages)">Add..</button>
+								<ul ng-repeat="assignment in model.practiceDailyDetails[day].assignments">
+									<li>Book: {{assignment.book}}, pages: {{assignment.pages}}</li>
+								</ul>
+								<!-- {{model.practiceDailyDetails}} -->
+								<br>
+
+							</div>
+						</div>
+						<button type="button" name="createDetails" class="btn btn-primary" ng-click="model.createCourse(model.newGrade)">Create</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
+
+
+

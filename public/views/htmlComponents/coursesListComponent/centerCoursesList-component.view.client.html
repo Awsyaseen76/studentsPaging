@@ -1,0 +1,48 @@
+<div>
+	<h2 ng-cloak>Course Center Name: {{model.loggedSchool.name.firstName}} {{model.loggedSchool.name.middleName}} {{model.loggedSchool.name.lastName}}</h2>
+	<h4>Grades List: </h4>
+	<div class="row">
+		<div class="col-4"> <h5>Name</h5> </div>
+		<div class="col-3"> <h5>School</h5> </div>
+		<div class="col-2"> <h5>Created</h5> </div>
+		<div class="col-1"> <h5>Edit</h5> </div>
+		<div class="col-1"> <h5>Remove</h5> </div>
+	</div>
+	<hr>	
+	<div class="row" ng-repeat="grade in model.gradesList">
+		<div class="col-4"> <h5 ng-cloak>{{grade.name}}</h5> </div>
+		<div class="col-3"> <h5 ng-cloak>{{grade.school.name}}</h5> </div>
+		<div class="col-2"> <h5 ng-cloak>{{grade.created | date}}</h5> </div>
+		<div class="col-1"> <h5><a href="#!/schoolProfile/editGrade"><span class="fa fa-pencil-square-o" aria-hidden="true"></span></a></h5></div>
+		<div class="col-1" ng-click="model.removeCourse(grade.schoolId, grade._id)"> <h5><a href="" ><span class="fa fa-trash-o" aria-hidden="true"></span></a></h5> </div>
+
+
+
+		<!-- for the future try the modal to make it work the problem with the below one that the modal disappear but the blur still on the screen -->
+		<!-- Modal to confirm the remove of an grade-->
+
+		<!-- <div class="modal collapse" id="{{grade.name}}">
+		  <div class="modal-dialog" role="dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Confirm removing grade</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <h5>Are your sure you want to remove the following grade:</h5>
+		        <div><p>{{grade.name}}</p></div>
+		        <div><p>{{grade.schoolId}}</p></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" ng-click="model.removeCourse(grade.gradeId)">Remove</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+		      </div>
+		    </div>
+		  </div>
+		</div> -->
+
+
+	</div>
+</div>

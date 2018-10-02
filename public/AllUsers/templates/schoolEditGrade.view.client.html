@@ -1,0 +1,176 @@
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedSchool">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedSchool">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedSchool">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+<div class="container aws-margin10">
+	<h1>Edit Course</h1>
+			<hr>
+
+	<div class="row">
+		<!-- Left side -->
+		<div class="col-3"  style="overflow-y: scroll; height:400px;" >
+			<h3>Grades List</h3>
+			<hr>
+			<div class="row" ng-repeat="grade in model.gradesList">
+				<div class="col-12" ng-click="model.selectCourse(grade._id)"> 
+					<h5>{{grade.name}}
+						<span><i class="fa fa-pencil-square-o pull-right" aria-hidden="true" ></i></span>
+					</h5>
+				</div>
+				<!-- <div class="col-2" ng-click="model.selectCourse(grade._id)"> <h5><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></h5> </div>	 -->
+			</div>
+
+		</div>
+		<!-- colomn space -->
+		<div class="col-1"></div>
+		
+		<!-- Right side -->
+		<div class="col-8" ng-show="model.updateCourseMain">
+			<h4>Main grade details:</h4>
+			<div class="form-group">
+				<form>
+					<fieldset>
+				    
+				    <p><i class="fa fa-angle-double-left" aria-hidden="true" style="font-size: 150%;"></i> Select grade from the list on left to edit:</p>
+
+					<div class="form-group">
+						<label for="gradeName">Course Name:</label>
+						<input class="form-control" type="text" name="gradeName" id="gradeName" ng-model="model.selectedCourse.name">
+				    </div>
+
+
+				    <div class="form-group">
+						<label for="school">School:</label>
+						<input class="form-control" type="text" name="school" id="school" ng-model="model.selectedCourse.school">
+					</div>
+
+					<div class="form-group">
+						<label for="details">Details:</label>
+						<textarea class="form-control" rows="4" cols="50" name="details" id="details" ng-model="model.selectedCourse.details"></textarea>
+					</div>
+
+
+					<div class="form-group">
+						<label for="school">Start date:</label>
+						<input class="form-control" type="date" name="school" id="school" ng-model="model.selectedCourse.startingDate">
+					</div>
+
+					<div class="form-group">
+						<label for="school">End date:</label>
+						<input class="form-control" type="date" name="school" id="school" ng-model="model.selectedCourse.expiryDate">
+					</div>
+
+					<div>
+						<div class="weekDays-selector">
+						  <input type="checkbox" id="weekday-sat" class="weekday" ng-model="model.daysOfWeek.Sat"/>
+						  <label for="weekday-sat">Sat</label>
+						  <input type="checkbox" id="weekday-sun" class="weekday" ng-model="model.daysOfWeek.Sun"/>
+						  <label for="weekday-sun">Sun</label>
+						  <input type="checkbox" id="weekday-mon" class="weekday" ng-model="model.daysOfWeek.Mon"/>
+						  <label for="weekday-mon">Mon</label>
+						  <input type="checkbox" id="weekday-tue" class="weekday" ng-model="model.daysOfWeek.Tue"/>
+						  <label for="weekday-tue">Tue</label>
+						  <input type="checkbox" id="weekday-wed" class="weekday" ng-model="model.daysOfWeek.Wed"/>
+						  <label for="weekday-wed">Wed</label>
+						  <input type="checkbox" id="weekday-thu" class="weekday" ng-model="model.daysOfWeek.Thu"/>
+						  <label for="weekday-thu">Thu</label>
+						  <input type="checkbox" id="weekday-fri" class="weekday" ng-model="model.daysOfWeek.Fri"/>
+						  <label for="weekday-fri">Fri</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="price">Price:</label>
+						<input type="text" class="form-control" name="price" id="price" ng-model="model.selectedCourse.price">
+					</div>
+
+					<div>
+						<label for="address">Address:</label>
+						<input class="form-control" type="text" name="address" id="address" ng-model="model.selectedCourse.address">
+					</div>
+
+					<div class="form-group">
+						<label for="img750x450">Image source 750x450:</label>
+						<input type="text" class="form-control" rows="4" cols="50" name="img750x450" id="img750x450" ng-model="model.selectedCourse.images.img750x450">
+					</div>
+
+					<div class="form-group">
+						<label for="img1200x300">Image source 1200x300:</label>
+						<input type="text" class="form-control" rows="4" cols="50" name="img1200x300" id="img1200x300" ng-model="model.selectedCourse.images.img1200x300">
+					</div>
+
+					<button type="button" name="save" class="btn btn-primary" ng-click="model.updateMainCourseDetails(model.selectedCourse, model.daysOfWeek)">Update Details</button>
+					<button type="button" name="cancel1" class="btn btn-danger" ng-click="model.cancelUpdate()">Cancel</button>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+
+		<!-- Day By Day Details -->
+		<div class="col-8" ng-show="model.updateCourseProgramDetails">
+			<div class="col-12">
+				<h1>Program Details Day By Day</h1>
+				<div class="form-group">
+					<form>
+						<fieldset>
+							<legend>Program Details:</legend>
+							<div>
+								<div style="margin-left: 50px;" class="form-group" ng-repeat="day in model.selectedCourse.gradeDays">
+									<label style="background-color: lightgreen;"><b>Day: </b>{{day}}</label>
+									<input type="text" class="form-control" placeholder="program Title" ng-model="model.selectedCourse.practiceDailyDetails[day].title" style="margin-bottom: 3px;">
+									<textarea class="form-control" style="border-left: 5px; border-style: solid; border-left-color: red; margin-bottom: 3px;" rows="4" cols="50" ng-model="model.selectedCourse.practiceDailyDetails[day].details">Program details</textarea>
+									<input type="text" class="form-control" placeholder="link for video" ng-model="model.selectedCourse.practiceDailyDetails[day].videoLink">
+									<br>
+								</div>
+							</div>
+							<button type="button" name="updateDetails" class="btn btn-primary" ng-click="model.updateCourse(model.selectedCourse)">Update</button>
+
+							<button type="button" name="cancel2" class="btn btn-danger" ng-click="model.cancelUpdate()">Cancel</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+	<br>
+	<hr>
+	
+</div>

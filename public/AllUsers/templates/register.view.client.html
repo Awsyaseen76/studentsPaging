@@ -1,0 +1,296 @@
+<!--Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/login" ng-show="!model.loggedUser">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedUser">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/profile" ng-show="model.loggedUser">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+<div class="container aws-margin10">
+	<div class="jumbotron" >
+	  <h1 class="display-3">Register with us:</h1>
+	  <hr class="my-4">
+		<form>
+		  <div nd-show="model.error" class="text-danger">{{model.error}}</div>
+		  <div class="form-row">
+		  	<!-- <div class="form-group col-md-12">
+		      <label for="userName">Username:</label>
+		      <input type="text" class="form-control" id="userName" placeholder="Username" ng-model="model.user.userName">
+		    </div> -->
+		    <div class="form-group col-md-12">
+		      <label for="email">Email</label>
+		      <input type="email" class="form-control" id="email" placeholder="Email" ng-model="model.user.email">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="password">Password</label>
+		      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="model.user.password">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="confirmPassword">Confirm Password</label>
+		      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" ng-model="model.password2">
+		    </div>
+		    
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="firstName">First Name</label>
+			      <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="model.user.name.firstName">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="middleName">Middle Name</label>
+			      <input type="text" class="form-control" id="middleName" placeholder="Middle Name" ng-model="model.user.name.middleName">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="lastName">Last Name</label>
+			      <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="model.user.name.lastName">
+			    </div>
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="gender">Gender</label>
+			      <select id="gender" class="form-control" ng-model="model.user.gender">
+			        <option>Male</option>
+			        <option>Female</option>
+      			  </select>
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="DOB">Date of birth</label>
+			      <input type="date" class="form-control" id="DOB" placeholder="Date of birth" ng-model="model.user.DOB">
+			    </div>
+			    <!-- <div class="form-group col-md-4">
+			      <label for="grade">Grade</label>
+			      <select id="grade" class="form-control" ng-model="model.user.grade">
+			        <option>KG1</option>
+			        <option>KG2</option>
+			        <option>1</option>
+			        <option>2</option>
+			        <option>3</option>
+			        <option>4</option>
+			        <option>5</option>
+			        <option>6</option>
+			        <option>7</option>
+			        <option>8</option>
+			        <option>9</option>
+      			  </select>
+			    </div> -->
+			    <!-- <div class="form-group col-md-12">
+			      <label for="school">School</label>
+			      <input type="text" class="form-control" id="school" placeholder="School name..." ng-model="model.user.school">
+		    	</div> -->
+		  </div>
+
+		  <!-- <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="medicalIssue">Any medical issues?</label>
+			      <select id="medicalIssue" class="form-control" ng-model="model.user.medical.medicalIssues">
+			        <option>Yes</option>
+			        <option>No</option>
+      			  </select>
+			    </div>
+			    <div class="form-group col-md-8">
+			      <label for="problemDetails">If yes please fill the details:</label>
+			      <input type="text" class="form-control" id="problemDetails" placeholder="Medical issue details..." ng-model="model.user.medical.problemDetails">
+			    </div>
+		  </div> -->
+
+		  <div class="form-row">
+			  <div class="form-group col-md-12">
+				<label for="address">Address</label>
+				<input type="text" class="form-control" id="address" placeholder="Address" ng-model="model.user.address">
+			  </div>
+		  </div>
+
+		  <hr class="my-4">
+
+		  <div class="form-row">
+		  	<div class="form-group col-md-12">
+		  		<label><h3>Contact details:</h3></label>
+		  	</div>
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="phone1">Phone 1: </label>
+			      <input type="text" id="phone1" class="form-control" placeholder="Phone number" ng-model="model.user.contact.phone1">
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="phone2">Phone 2: </label>
+			      <input type="text" id="phone2" class="form-control" placeholder="Phone number" ng-model="model.user.contact.phone2">
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="phone3">Phone 3: </label>
+			      <input type="text" id="phone3" class="form-control" placeholder="Phone number" ng-model="model.user.contact.phone3">
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="phone4">Phone 4: </label>
+			      <input type="text" id="phone4" class="form-control" placeholder="Phone number" ng-model="model.user.contact.phone4">
+			    </div>
+
+		  </div>
+
+
+		  
+
+
+		  
+
+		  <hr class="my-4">
+
+  		  <div class="form-row">
+			  <div class="form-group col-md-12">
+				<label for="notes">Notes:</label>
+				<input type="text" class="form-control" id="notes" placeholder="Notes..." ng-model="model.user.notes">
+			  </div>
+		  </div>
+
+
+			  
+		  <button type="submit" class="btn btn-success" ng-click="model.register(model.user, model.password2)">Register</button>
+	  	  <a class="btn btn-danger" href="#!/" role="button">Cancel</a>
+		</form>
+	</div>
+</div>
+
+
+<!-- <div class="container aws-margin10">
+	<div class="jumbotron" >
+	  <h1 class="display-3">Register with us:</h1>
+	  <hr class="my-4">
+	  <form>
+	  	<fieldset>
+			  <div class="form-group">
+		      	<div nd-show="model.error" class="text-danger">{{model.error}}</div>
+		      	<label for="email">Username:</label>
+		      	<input type="text" 
+		      			class="form-control" 
+		      			id="userName" 
+		      			placeholder="Username" 
+		      			ng-model="model.user.userName">		      	
+	    	</div>
+
+	    	<div class="form-group">
+		      	<label for="password">Password:</label>
+		      	<input type="password" 
+  					class="form-control" 
+  					id="password" 
+  					placeholder="Password" 
+  					ng-model="model.user.password">
+	    	</div>
+	  	
+	  		<div class="form-group">
+		      	<label for="password2">Confirm Password:</label>
+		      	<input type="password" 
+  					class="form-control" 
+  					id="password2" 
+  					placeholder="Confirm Password" 
+  					ng-model="model.password2">
+	    	</div>
+
+	    	<label for="email">Email address:</label>
+		      	<input type="email" 
+		      			class="form-control" 
+		      			id="email" 
+		      			placeholder="Enter email" 
+		      			ng-model="model.user.email">
+		      	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+	  		<div class="form-group">
+		      	<label for="firstName">First Name:</label>
+		      	<input type="text" 
+  					class="form-control" 
+  					id="firstName" 
+  					placeholder="First name" 
+  					ng-model="model.user.name.firstName">
+	    	</div>
+
+	    	<div class="form-group">
+		      	<label for="middleName">Middle Name:</label>
+		      	<input type="text" 
+  					class="form-control" 
+  					id="middleName" 
+  					placeholder="Middle name" 
+  					ng-model="model.user.name.middleName">
+	    	</div>
+
+	    	<div class="form-group">
+		      	<label for="lastName">Last Name:</label>
+		      	<input type="text" 
+  					class="form-control" 
+  					id="lastName" 
+  					placeholder="Last name" 
+  					ng-model="model.user.name.lastName">
+	    	</div>
+
+
+
+
+
+
+	    	<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gender</button>
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item">Male</a>
+			      <a class="dropdown-item">Female</a>
+			    </div>
+			  </div>
+			  <input type="text" 
+			  		class="form-control" 
+			  		aria-label="Text input with dropdown button"
+			  		ng-model="model.user.gender">
+			</div>
+
+
+
+
+
+	    	<div class="form-group">
+		      	<label for="gender">Gender:</label>
+		      	<input type="text" 
+  					class="form-control" 
+  					id="gender" 
+  					placeholder="Gender" 
+  					ng-model="model.user.gender">
+	    	</div>
+
+
+	  		<button type="submit" class="btn btn-success" ng-click="model.register(model.user, model.password2)">Register</button>
+	  		<a class="btn btn-danger" href="#!/" role="button">Cancel</a>
+	  	</fieldset>
+	  </form>
+	</div>
+</div>

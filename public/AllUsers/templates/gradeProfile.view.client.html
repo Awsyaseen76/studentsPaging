@@ -1,0 +1,79 @@
+
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedGrade">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedGrade">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedGrade">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+<div class="container aws-margin10">	
+  <div>
+    <!-- <img src='/img/profileImages/avatar.png'> -->
+		<h3 class="text-danger">Grade Profile:</h3>
+		<hr>
+		<h5>Name: {{model.gradeProfile.name.firstName}} {{model.gradeProfile.name.middleName}} {{model.gradeProfile.name.lastName}}</h5>
+		<h5>Email: {{model.gradeProfile.email}}</h5>
+		<h5>Phone 1: {{model.gradeProfile.contact.phone1}}</h5>
+    <h5>Phone 2: {{model.gradeProfile.contact.phone2}}</h5>
+    <h5>Phone 3: {{model.gradeProfile.contact.phone3}}</h5>
+    <h5>Phone 4: {{model.gradeProfile.contact.phone4}}</h5>
+    <h5>Notes: {{model.gradeProfile.notes}}</h5>
+
+	</div>
+	<br>
+	<div>
+		<hr>
+		<!-- <a class="btn btn-primary" href="#!/gradeProfile/gradesList">Grades List</a> -->
+		<a class="btn btn-primary" href="#!/gradeProfile/newStudent">New Grade</a>
+		<a class="btn btn-primary" href="#!/gradeProfile/editStudent">Edit Student</a>
+		<a class="btn btn-primary" href="#!/gradeProfile/studentsList">Students List</a>
+    <a href="#!/updateSchoolProfile" class="btn btn-warning">Edit profile</a>
+
+
+	</div>
+	<br>
+	<h4>Grades:</h4>
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="card border-success col-xl-4 aws-margin10" ng-repeat='student in model.gradeProfile.students' style="max-width: 20rem;">
+			  <div class="card-header text-danger"><h3>{{student.name}}</h3></div>
+			  <div class="card-body">
+			    <h5 class="card-title">Parent: {{student.parent.name}}</h5>
+			    <p class="card-text">Details: {{student.details}}</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>

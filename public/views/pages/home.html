@@ -1,0 +1,186 @@
+
+<!-- Navigation -->
+    <!-- <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;"> -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="../../img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedUser">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedUser">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/profile" ng-show="model.loggedUser">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+<!-- UIB carousel -->
+  <div>
+    
+  </div>
+<!-- UIB carousel -->
+
+
+
+<!-- carousel -->
+<!--     <div>
+    <header>
+      <div id="homePageCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#homePageCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#homePageCarousel" data-slide-to="1"></li>
+          <li data-target="#homePageCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" style="background-image: url('../../img/carousal1-1.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Fun with freinds</h3>
+              <p>The most favourite camps in jordan.</p>
+            </div>
+          </div>
+          <div class="carousel-item" style="background-image: url('../../img/carousal2-1.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Activity</h3>
+              <p>Best football programs</p>
+            </div>
+          </div>
+          <div class="carousel-item" style="background-image: url('../../img/carousal3-1.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Swimming grades </h3>
+              <p>Based on the most famouse international program.</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#homePageCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#homePageCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+    </div> -->
+<!-- /carousel -->
+
+
+
+
+
+<!-- Page Content -->
+    <div class="container">
+
+      <br><br>
+
+      <h1>Welcome to students paging system...</h1>
+
+      <!-- Special grade -->
+      <!-- <div class="row" ng-show="model.specialCourse">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4" ng-src="{{model.specialCourse.images.img750x450}}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h2>Special grade...</h2>
+          <h2 ng-cloak>{{model.specialCourse.name}}</h2>
+          <p ng-cloak>{{model.specialCourse.details}}</p>
+          <a href="#!/allGrades/{{model.specialCourse._id}}">More details...</a>
+        </div>
+      </div> -->
+      <!-- /Special grade -->
+    
+    <br><br><br>
+
+      <!-- Available grades -->
+      <!-- <h2>Available grades</h2>
+      <div class="row">
+        <div class="col-lg-4 mb-4" ng-repeat="grade in model.gradesList | filter:{approved: true}">
+          <div class="card h-100 text-school">
+            <img class="card-img-top" ng-src="{{grade.images.img750x450}}" alt="{{grade.name}}">
+            <div class="card-body">
+              <h4 class="card-title" ng-cloak>{{grade.name}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted" ng-cloak>{{grade.school.name}}</h6>
+              <p class="card-text" ng-cloak>from: {{grade.startingDate | date}}</p>
+              <p class="card-text" ng-cloak>to: {{grade.expiryDate | date}}</p>
+            </div>
+            <div class="card-footer">
+              <a href="#!/allGrades/{{grade._id}}">More details...</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- /Available Grades -->
+
+      <br>
+      <br>
+      
+      <!-- <blockquote><h4>Random Feedbacks</h4></blockquote>
+      <div class="feedbackContainer">
+        <div class="feedbackContent">
+          <div ng-repeat="feedback in model.feedbacks" ng-show="feedback.approved">
+            <h3 style="color: #090; text-align: left; clear: both;"><span>&#8220;</span>{{feedback.feedback}}<span>&#8221;</span></h3>
+            <div class="pull-right">
+              <h5 style="color: darkviolet; text-align: school;">{{feedback.gradeName}}</h5>
+              <p style="margin-top: -10px; text-align: school;">{{feedback.userName}}</p>
+              <p style="margin-top: -20px; text-align: school;">on: {{feedback.date | date}}:</p>
+            </div>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div> -->
+
+
+      <!-- Partners -->
+      <h2>Our Partners</h2>
+      <div class="row">
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </div>
+      </div>
+      <!-- / Partners -->
+
+    </div>
+    <!-- /.container -->
+
+
+

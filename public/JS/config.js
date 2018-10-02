@@ -60,8 +60,8 @@
 			})
 
 			.when('/schoolProfile', {
-				templateUrl: 'AllUsers/templates/schoolProfile.view.client.html',
-				controller: 'schoolProfileController',
+				templateUrl: 'Schools/templates/schoolProfile.view.client.html',
+				controller: 'schoolController',
 				controllerAs: 'model',
 				resolve: {
 					loggedSchool: isSchool
@@ -77,6 +77,14 @@
 				}
 			})
 
+			.when('/gradeProfile', {
+				templateUrl: 'AllUsers/templates/gradeProfile.view.client.html',
+				controller: 'gradeProfileController',
+				controllerAs: 'model',
+				resolve: {
+					loggedGrade: isGrade
+				}
+			})
 
 			.when('/adminPage', {
 				templateUrl: 'Admin/templates/adminPage.view.client.html',
@@ -194,6 +202,21 @@
 		return deferred.promise;
 	}
 
+	function isGrade(userService, $q, $location){
+		var deferred = $q.defer();
+		userService
+			.isGrade()
+			.then(function(grade){
+				if(grade === null){
+					deferred.reject();
+					$location.url('/login');
+				} else{
+					deferred.resolve(grade);
+				}
+			});
+		return deferred.promise;
+	}
+
 	function isAdmin(userService, $q, $location){
 		var deferred = $q.defer();
 		userService
@@ -218,17 +241,17 @@
 					deferred.resolve(user);
 					$location.url('/parentProfile');
 					return deferred.promise;
-				} else if(user.userType === 'school'){
+				} else if(user.userType === 'schoolAdmin'){
 					deferred.resolve(user);
 					$location.url('/schoolProfile');
+					return deferred.promise;
+				}else if(user.userType === 'gradeAdmin'){
+					deferred.resolve(user);
+					$location.url('/gradeProfile');
 					return deferred.promise;
 				}else if(user.userType === 'admin'){
 					deferred.resolve(user);
 					$location.url('/adminPage');
-					return deferred.promise;
-				}else if(user.userType === 'grade'){
-					deferred.resolve(user);
-					$location.url('/gradeProfile');
 					return deferred.promise;
 				}
 			});

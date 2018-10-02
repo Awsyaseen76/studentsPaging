@@ -1,0 +1,134 @@
+
+
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedSchool">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedSchool">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedSchool">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+<!--  -->
+
+<div class="container aws-margin10">
+	<div class="jumbotron" >
+	  <h1 class="display-3">Update profile:</h1>
+	  <hr class="my-4">
+		<form>
+			<div nd-show="model.error" class="text-danger">{{model.error}}</div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="firstName">First Name</label>
+			      <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="model.schoolProfile.name.firstName">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="middleName">Middle Name</label>
+			      <input type="text" class="form-control" id="middleName" placeholder="Middle Name" ng-model="model.schoolProfile.name.middleName">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="lastName">Last Name</label>
+			      <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="model.schoolProfile.name.lastName">
+			    </div>
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="gender">Gender</label>
+			      <select id="gender" class="form-control" ng-model="model.schoolProfile.gender">
+			        <option>Male</option>
+			        <option>Female</option>
+      			  </select>
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="DOB">Date of birth</label>
+			      <input type="date" class="form-control" id="DOB" placeholder="Date of birth" ng-model="model.schoolProfile.DOB">
+			    </div>
+		  </div>
+
+		  <div class="form-row">
+			  <div class="form-group col-md-12">
+				<label for="address">Address</label>
+				<input type="text" class="form-control" id="address" placeholder="Address" ng-model="model.schoolProfile.address">
+			  </div>
+		  </div>
+
+		  <hr class="my-4">
+
+		  <div class="form-row">
+		  	<div class="form-group col-md-12">
+		  		<label><h3>Contact details:</h3></label>
+		  	</div>
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="phone1">Phone 1</label>
+			      <input type="text" id="phone1" class="form-control" placeholder="Phone 1" ng-model="model.schoolProfile.contact.phone1">
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="phone2">Phone 2</label>
+			      <input type="text" id="phone2" class="form-control" placeholder="Phone 2" ng-model="model.schoolProfile.contact.phone2">
+			    </div>
+		  </div>
+
+		  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="emergencyName">Emergency Contact Name:</label>
+			      <input type="text" id="emergencyName" class="form-control" placeholder="Emergency Contact Name" ng-model="model.schoolProfile.contact.emergency.name">
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="emergencyPhone">Emergency phone number</label>
+			      <input type="text" id="emergencyPhone" class="form-control" placeholder="Emergency phone number" ng-model="model.schoolProfile.contact.emergency.phone">
+			    </div>
+		  </div>
+
+		  <hr class="my-4">
+
+  		  <div class="form-row">
+			  <div class="form-group col-md-12">
+				<label for="notes">Notes:</label>
+				<input type="text" class="form-control" id="notes" placeholder="Notes..." ng-model="model.schoolProfile.notes">
+			  </div>
+		  </div>
+
+
+			  
+		  <button type="submit" class="btn btn-success" ng-click="model.updateSchoolProfile(model.schoolProfile)">Update profile</button>
+	  	  <a class="btn btn-danger" href="#!/" role="button">Cancel</a>
+		</form>
+	</div>
+</div>
+

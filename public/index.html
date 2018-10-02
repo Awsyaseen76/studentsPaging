@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UCMAS</title>
+	<!-- setup the navbar menu Aws -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon"> -->
+
+
+	<!-- Favicon -->
+	<!-- <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+ -->
+
+
+	<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- <link href="css/modern-business.css" rel="stylesheet"> -->
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	<!-- Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<!-- Bootstrap -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+    <!-- Sketchy Theme -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-QAdi7HQouHzrMcg66qFdsKV2BCFW/iVhCRvooAkqS4d5rXV8Hlu+X8MY3ao03fgn" crossorigin="anonymous">
+	
+	<!-- Local css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<!-- font awesom used for login with google -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	
+	<!-- Angular -->
+	<script type="text/javascript" src="vendor/angular/angular.js"></script>
+
+	<!-- Angular Route -->
+	<script type="text/javascript" src="vendor/angular/angular-route.js"></script>
+
+	<script type="text/javascript" src="JS/app.js"></script>
+	<script type="text/javascript" src="JS/config.js"></script>
+	
+	
+	<script type="text/javascript" src="AllUsers/controllers/login.controller.client.js"></script>
+	<script type="text/javascript" src="AllUsers/controllers/register.controller.client.js"></script>
+	<script type="text/javascript" src="AllUsers/services/user.service.client.js"></script>
+	<script type="text/javascript" src="AllUsers/controllers/parentProfile.controller.client.js"></script>
+	<script type="text/javascript" src="AllUsers/controllers/gradeProfile.controller.client.js"></script>
+	<!-- <script type="text/javascript" src="AllUsers/controllers/editUserProfile.controller.client.js"></script> -->
+	<script type="text/javascript" src="Schools/controllers/school.controller.client.js"></script>
+	<script type="text/javascript" src="Schools/services/school.service.client.js"></script>
+	<!-- <script type="text/javascript" src="AllUsers/controllers/schoolNewGrade.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="AllUsers/controllers/schoolGradesList.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="AllUsers/controllers/schoolEditGrade.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="AllUsers/controllers/schoolReNewCourse.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="AllUsers/controllers/forgetPassword.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="AllUsers/controllers/resetPassword.controller.client.js"></script> -->
+	<script type="text/javascript" src="Admin/controllers/admin.controller.client.js"></script>
+	<!-- <script type="text/javascript" src="Schools/controllers/schools.controller.client.js"></script> -->
+
+	<script type="text/javascript" src="controllers/homePage.controller.client.js"></script>
+	
+	<!-- <script type="text/javascript" src="Grades/controllers/allGrades.controller.client.js"></script> -->
+	<!-- <script type="text/javascript" src="Grades/controllers/gradeDetails.controller.client.js""></script> -->
+	<!-- <script type="text/javascript" src="Grades/controllers/schoolGradeDetails.controller.client.js""></script> -->
+
+	<!-- <script type="text/javascript" src="Grades/services/grades.service.client.js"></script> -->
+	  
+   
+   <!-- Mapbox maps api -->
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+
+
+</head>
+<body ng-app="studentsPaging">
+
+	<div ng-view></div>
+
+
+	<br><br>
+<!-- Footer -->
+    <footer class="py-2 bg-dark fixed-bottom">
+      <div class="container">
+        <p class="m-0 text-school text-white">Copyright &copy; Aws 2018</p>
+      </div>
+    </footer>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

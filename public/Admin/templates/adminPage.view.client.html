@@ -1,0 +1,167 @@
+
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedAdmin">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedAdmin">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedAdmin">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+<div class="container aws-margin10">
+	<h1>Admin Page</h1>
+	<br>
+	<a href="" ng-click="model.getAllUsers()" class="btn btn-warning"> list of all users</a>
+	<a href="" ng-click="model.getallGrades()" class="btn btn-primary"> list of grades</a>
+	<a href="#!/admin/schools" class="btn btn-primary">Schools</a>
+</div>
+
+<br>
+<br>
+
+<!-- All users -->
+<div ng-show="model.allUsers">
+	<table class="table table-responsive-sm table-hover">
+		<thead class="table-primary">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>User Type</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in model.allUsers">
+				<td>{{user.name.firstName}}, {{user.name.lastName}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.userType}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<!-- All Parents -->
+<div ng-show="model.parents" >
+	<table class="table table-responsive-sm table-hover">
+		<thead class="table-primary">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>User Type</th>
+				<th>Center grades</th>
+				<th>User Registered grades</th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr ng-repeat="user in model.parents">
+				<td>{{user.name.firstName}} {{user.name.middleName}} {{user.name.lastName}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.userType}}</td>
+				<td>
+					<ul ng-repeat="grade in user.grades">
+						<li>{{grade.name}}</li>
+					</ul>
+				</td>
+				<td>
+					<ul ng-repeat="rCourse in user.registeredGradesList">
+						<li>{{rCourse.name}}</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- / All Parents -->
+
+
+<!-- All Grades -->
+<div ng-show="model.grades" >
+	<table class="table table-responsive-sm table-hover">
+		<thead class="table-primary">
+			<tr>
+				<th>Name</th>
+				<th>School</th>
+				<th>Center Name</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Approved</th>
+				<th>Special</th>
+				<th>Update</th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr ng-repeat="grade in model.grades">
+				<td>{{grade.name}}</td>
+				<td>{{grade.school.name}}</td>
+				<td>{{grade.schoolId.name.firstName}}</td>
+				<td>{{grade.startingDate | date}}</td>
+				<td>{{grade.expiryDate | date}}</td>
+				<td> <input ng-model="grade.approved" type="checkbox" name="approved"></td>
+				<td> <input ng-model="grade.special" type="checkbox" name="special"></td>
+				<td> <a class="btn btn-primary" href="" ng-click="model.updateGradeByAdmin(grade)">Update</a> </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- / All Grades -->
+
+
+<!-- All Feedbacks -->
+<div ng-show="model.feedbacks" >
+	<table class="table table-responsive-sm table-hover">
+		<thead class="table-primary">
+			<tr>
+				<th>Name</th>
+				<th>Course</th>
+				<th>Date</th>
+				<th>Feedback</th>
+				<th>Approved?</th>
+				<th>Confirm</th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr ng-repeat="feedback in model.feedbacks">
+				<td>{{feedback.userName}}</td>
+				<td>{{feedback.gradeName}}</td>
+				<td>{{feedback.date | date}}</td>
+				<td>{{feedback.feedback}}</td>
+				<td>
+					<input type="checkbox" name="approvedFeedback" ng-model="feedback.approved">
+				</td>
+				<td>
+					<a class="btn btn-primary" href="" ng-click="model.updateFeedbackByAdmin(feedback)">Update</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- / All Parents -->

@@ -1,0 +1,159 @@
+
+
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedUser">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedUser">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedUser">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+<!--  -->
+
+<div class="container aws-margin10">
+	<div class="jumbotron" >
+		<img ng-src="{{model.parentProfile.profileImage.location}}" class="mx-auto d-block profile-img">
+		<a class="btn btn-warning" href="#!/updateUserProfile">Update profile</a>
+		<br>
+		<hr>
+		<h1 class="display-3">Profile details:</h1>
+		<hr class="my-4">
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"> <b>Name: </b> {{model.parentProfile.name.firstName}} {{model.parentProfile.name.middleName}} {{model.parentProfile.name.lastName}}</li>
+					<li class="list-group-item"> <b>Email: </b> {{model.parentProfile.email}}</li>
+					<li class="list-group-item"> <b>Gender: </b> {{model.parentProfile.gender}}</li>
+					<li class="list-group-item"> <b>Address: </b> {{model.parentProfile.address}}</li>
+					<li class="list-group-item"> <b>DOB: </b>{{model.parentProfile.DOB |date}} </li>
+					<!-- <li class="list-group-item"> <b>Grade: </b>{{model.parentProfile.grade}}</li> -->
+					<!-- <li class="list-group-item"> <b>School: </b>{{model.parentProfile.school}}</li> -->
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<li class="list-group-item"> <h4> Contact details:</h4></li>
+				<li class="list-group-item"> <b>Phone1: </b>{{model.parentProfile.contact.phone1}}</li>
+				<li class="list-group-item"> <b>Phone2: </b>{{model.parentProfile.contact.phone2}}</li>
+				<li class="list-group-item"> <b>Phone3: </b>{{model.parentProfile.contact.phone3}}</li>
+				<li class="list-group-item"> <b>Phone4: </b>{{model.parentProfile.contact.phone4}}</li>
+			</div>
+		</div>
+<br><br>
+		<div class="row">
+			<div class="col-md-12">
+				<li class="list-group-item"> <b> Notes: </b> {{model.parentProfile.notes}}</li>
+			</div>
+		</div>
+		<br><br>
+		<!-- <div class="row">
+			<div class="col-md-12">
+				<h4>Registered Grades:</h4>
+					<hr>
+					<div class="container">
+						<h2>Upcomming Program:</h2>
+						<div class="row mb-1" ng-show="model.upcommingProgram.length > 0" ng-repeat="program in model.upcommingProgram">
+					        <div class="col-md-12">
+					          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+					            <div class="card-body d-flex flex-column align-items-start">
+					              <h3 class="d-inline-block mb-2 text-warning">{{program.grade}}:</h3>
+					              <h5 class="mb-0">{{program.programDetails.title}}</h5>
+					              <div class="mb-1 text-muted">{{program.date | date}}</div>
+					              <p class="card-text mb-auto">
+					              	{{program.programDetails.details}}
+					              </p>
+						        </div>    
+					            <div class="video-container">
+					            	<iframe width="400px;" height="100%" ng-src="{{model.trustedUrl(program.programDetails.videoLink)}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					            </div>
+					          </div>
+					        </div>
+      					</div>
+						<div class="row">
+							<div class="card border-success col-xl-4 aws-margin10" ng-repeat='grade in model.parentProfile.registeredGradesList' style="max-width: 20rem;">
+							  <div class="card-header text-danger"><h3>{{grade.name}}</h3></div>
+							  <div class="card-body">
+							    <p class="card-title"><b>School: </b>{{grade.school.name}}</p>
+							    <p class="card-title"><b>Starting date: </b>{{grade.startingDate | date}}</p>
+							    <p class="card-title"><b>Ending date: </b>{{grade.expiryDate | date}}</p>
+							    <p class="card-title"><b>Payments: </b>{{model.totalPayments(grade._id, grade.price).totals | currency:"JOD "}}</p>
+							    <p class="card-title"><b>Balance: </b>{{model.totalPayments(grade._id, grade.price).balance | currency:"JOD "}}</p>
+							    <p class="card-title"><b>Attended Days: </b>{{model.attendedDays(grade._id).attended}}</p>
+							    <p class="card-title"><b>Missed Days: </b>{{model.attendedDays(grade._id).missed}}</p>
+							    <button class="btn btn-warning pull-right">Details..</button>
+							  </div>
+							</div>
+						</div>
+						<div>
+						<div class="row jumbotron aws-margin10">
+							<div class="col-sm-12">
+								<h3 class="text-success">Give us a feedback:</h3>
+							</div>
+							<div class="col-sm-6" style="margin: 5px;">
+								<select ng-model="selectedCourse" class="custom-select" ng-options="grade.name for grade in model.registeredGradesList">
+									<option value="" disabled >Select grade...</option>
+								</select>
+							</div>
+							<div class="col-sm-10" style="margin: 5px;">
+								<textarea name="feedback" class="form-control" ng-model="feedbackText"></textarea>
+							</div>
+							<div class="col-sm-4" style="margin: 5px;">
+								<a class="btn btn-success form-control" ng-click="model.submitFeedback(selectedCourse._id, selectedCourse.name, feedbackText)">Submit</a>
+							</div>
+							<div class="col-sm-12" style="margin-top: 50px;">
+								<h4 class="text-success">Your feedbacks:</h4>
+									<table class="table table-hover">
+									  <thead>
+									    <tr>
+									      <th width="20%">Date</th>
+									      <th width="20%">Course name</th>
+									      <th width="60%">Feedback</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr ng-repeat="feed in model.userFeedbacks">
+									      <td>{{feed.date | date}}</td>
+									      <td>{{feed.gradeName}}</td>
+									      <td>{{feed.feedback}}</td>
+									    </tr>
+									  </tbody>
+									</table>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div> -->
+	</div>
+</div>	  	
+
+
+

@@ -6,7 +6,7 @@ var bodyParser 	 = require('body-parser');
 var passport     = require('passport');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 // to add secret variables to the process.env through the .env file which it ignored from gitting to github
 require('dotenv').config();
@@ -30,8 +30,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./server/AllUsers/users.service.server')(app);
-require('./server/grades/grades.service.server')(app);
-require('./server/schools/schools.service.server')(app);
+// require('./server/Grades/grades.service.server')(app);
+// require('./server/Schools/schools.service.server')(app);
+// require('./server/Students/students.service.server')(app);
+
 require('./server/databse.js');
 
 

@@ -1,0 +1,78 @@
+
+<!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg fixed-top" style="background-color: gold;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="menu-logo" src="./img/logo/logo2.jpg"> </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!/">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#!/allGrades">Grades</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#!/login" ng-show="!model.loggedSchool">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" ng-click="model.logout()" ng-show="model.loggedSchool">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#!/profile" ng-show="model.loggedSchool">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/contact">Contact</a>
+            </li>
+            
+           
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- /Navigation -->
+
+
+
+
+<div class="container aws-margin10">
+<!-- 	<ng-include 
+		src="'../../views/htmlComponents/gradesListComponent/schoolGradesList-component.view.client.html'">
+	</ng-include> -->
+
+	<h2 ng-cloak>Course Center Name: {{model.loggedSchool.name.firstName}} {{model.loggedSchool.name.middleName}} {{model.loggedSchool.name.lastName}}</h2>
+	<h4>Grades List: </h4>
+
+	<table id="t01">
+	  <tr>
+	    <th width="30%" class="text-school">Name</th>
+	    <th width="10%" class="text-school">School</th> 
+	    <th width="15%" class="text-school">Created</th>
+	    <th width="10%" class="text-school">Members</th>
+	    <th width="10%" class="text-school">Edit</th>
+	    <!-- <th>Remove</th> -->
+	    <th width="10%" class="text-school">Re-create</th>
+	    <th width="15%" class="text-school">Details</th>
+
+
+	  </tr>
+	  <tr ng-repeat="grade in model.gradesList">
+	    <td class="text-school">{{grade.name}}</td>
+	    <td class="text-school">{{grade.school.name}}</td>
+	    <td class="text-school">{{grade.created | date}}</td>
+	    <td class="text-school">{{grade.registeredMembers.length}}</td>
+	    <td class="text-school"><a href="#!/schoolProfile/editGrade"><span class="fa fa-pencil-square-o" aria-hidden="true"></span></a></td>
+	    <!-- <td><a href="" ><span class="fa fa-trash-o" aria-hidden="true"></span></a></td> -->
+	    <td><a href="#!/schoolProfile/reNewCourse/{{grade._id}}">ReNewCourse</a></td>
+	    
+	    <td class="text-school"><a href="#!/schoolProfile/schoolGradeDetails/{{grade._id}}" class=" btn btn-default pull-right">More details...</a></td>
+	  </tr>
+	</table>
+
+</div>
